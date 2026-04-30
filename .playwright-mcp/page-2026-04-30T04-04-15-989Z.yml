@@ -1,0 +1,24 @@
+- generic [ref=e2]:
+  - main [ref=e6]:
+    - generic [ref=e10]:
+      - button [ref=e12] [cursor=pointer]:
+        - img
+      - heading "Login" [level=1] [ref=e13]:
+        - img "Login" [ref=e14]
+      - generic [ref=e15]:
+        - group [ref=e16]:
+          - generic [ref=e17]: School email or phone number
+          - textbox "School email or phone number" [ref=e18]:
+            - /placeholder: school email or phone number
+        - generic [ref=e19]:
+          - button "Continue" [ref=e20] [cursor=pointer]:
+            - generic [ref=e21]: Continue
+          - paragraph [ref=e22]: or
+          - button "Sign in with Google" [ref=e25] [cursor=pointer]:
+            - img [ref=e26]
+            - generic [ref=e27]: Sign in with Google
+      - paragraph [ref=e28]:
+        - text: Don't have an account?
+        - button "Sign up" [ref=e29] [cursor=pointer]
+  - region "Notifications (F8)":
+    - list

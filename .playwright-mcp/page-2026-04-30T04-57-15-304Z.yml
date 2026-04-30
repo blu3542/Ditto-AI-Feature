@@ -1,0 +1,6 @@
+- generic [ref=e2]:
+  - generic [ref=e13]:
+    - img [ref=e14]
+    - heading "Loading..." [level=2] [ref=e20]
+  - region "Notifications (F8)":
+    - list

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -L \"https://app.ditto.ai/fonts/Spencer/spencer-regular-webfont.woff\" -o /Users/benlu/Downloads/Ditto-AI-Build/ditto-wildcard/public/Spencer.woff)",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate"
+    ]
+  }
+}

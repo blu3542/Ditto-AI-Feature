@@ -1,0 +1,14 @@
+[    1057ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(3), logs: Array(1)} TypeError: Failed to fetch
+    at https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:30:98892
+    at https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:29:15716
+    at s (https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:4:2461)
+    at https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:4:2644
+    at new Promise (<anonymous>)
+    at Object.add (https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:4:2584)
+    at U_.<anonymous> (https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:29:15524)
+    at Generator.next (<anonymous>)
+    at https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:29:14453
+    at new Promise (<anonymous>) @ https://app.ditto.ai/assets/tracking-vendor-D9y-pFiv.js:3

@@ -1,0 +1,54 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11]:
+            - generic [ref=e12]: B
+            - generic [ref=e13]:
+              - paragraph [ref=e14]: Ben
+              - paragraph [ref=e15]: "+15133175976"
+          - button [ref=e16] [cursor=pointer]
+        - generic [ref=e20]:
+          - heading "Ditto is finding you a date!" [level=1] [ref=e21]:
+            - text: Ditto is finding
+            - text: you a date!
+          - paragraph [ref=e22]:
+            - text: Searching through your school to find
+            - text: someone just right for you...
+          - generic [ref=e23]:
+            - button "Pause Ditto" [ref=e24] [cursor=pointer]
+            - button "Message Ditto" [ref=e25] [cursor=pointer]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - paragraph [ref=e29]: Wildcard — Week of Apr 28
+          - generic [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]:
+                - generic [ref=e33]: 🌶️
+                - generic [ref=e34]: Spicy Question
+              - generic [ref=e35]: New every Monday
+            - paragraph [ref=e36]: Would you rather date someone significantly hotter than you, or significantly smarter than you?
+            - generic [ref=e37]:
+              - button "Hotter than me 🔥" [ref=e38] [cursor=pointer]
+              - button "Smarter than me 🧠" [ref=e39] [cursor=pointer]
+            - button "Lock in my answer" [disabled] [ref=e40]
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: What Ditto knows about you
+          - generic [ref=e43]:
+            - generic [ref=e44] [cursor=pointer]:
+              - generic [ref=e47]:
+                - paragraph [ref=e48]: Basic level
+                - paragraph [ref=e49]: Born in 2003, Ben Lu is an east asian male who loves...
+              - generic [ref=e50]: ✏️
+            - generic [ref=e51] [cursor=pointer]:
+              - generic [ref=e54]:
+                - paragraph [ref=e55]: In-depth level
+                - paragraph [ref=e56]: Users who complete this get 78% more matches
+              - generic [ref=e57]: +
+            - generic [ref=e58] [cursor=pointer]:
+              - generic [ref=e61]:
+                - paragraph [ref=e62]: Ideal look
+                - paragraph [ref=e63]: Users who upload this get 2× more matches
+              - generic [ref=e64]: +
+  - alert [ref=e65]

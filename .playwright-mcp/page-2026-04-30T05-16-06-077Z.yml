@@ -1,0 +1,38 @@
+- generic [ref=e2]:
+  - generic [ref=e6]:
+    - generic [ref=e10]:
+      - generic [ref=e12]:
+        - button "Ben +15133175976" [ref=e14] [cursor=pointer]:
+          - img
+          - generic [ref=e15]:
+            - generic [ref=e16]: Ben
+            - generic [ref=e17]: "+15133175976"
+        - button [ref=e19] [cursor=pointer]:
+          - img
+      - generic [ref=e22]:
+        - heading "Ditto is finding you a date!" [level=1] [ref=e23]
+        - paragraph [ref=e24]: Searching through your school to find someone just right for you...
+      - generic [ref=e27]:
+        - button "Pause Ditto" [ref=e28] [cursor=pointer]
+        - button "Message Ditto" [ref=e29] [cursor=pointer]:
+          - generic [ref=e30]: Message Ditto
+    - generic [ref=e34]:
+      - heading "What Ditto knows about you" [level=2] [ref=e35]
+      - generic [ref=e37]:
+        - generic [ref=e38] [cursor=pointer]:
+          - generic [ref=e39]:
+            - generic [ref=e41]: Basic level
+            - img [ref=e42]
+          - paragraph [ref=e45]: Add your basic info to get started
+        - generic [ref=e46] [cursor=pointer]:
+          - generic [ref=e47]:
+            - generic [ref=e49]: In-depth level
+            - img [ref=e50]
+          - paragraph [ref=e51]: Users who complete this get 78% more matches.
+        - generic [ref=e52] [cursor=pointer]:
+          - generic [ref=e53]:
+            - generic [ref=e55]: Ideal Look
+            - img [ref=e56]
+          - paragraph [ref=e57]: Users who upload this get 2× more matches.
+  - region "Notifications (F8)":
+    - list

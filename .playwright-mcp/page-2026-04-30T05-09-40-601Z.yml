@@ -1,0 +1,53 @@
+- main [ref=e2]:
+  - generic [ref=e6]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - img "Ben" [ref=e12]
+          - generic [ref=e13]:
+            - paragraph [ref=e14]: Ben
+            - paragraph [ref=e15]: "+15133175976"
+        - button [ref=e16] [cursor=pointer]
+      - generic [ref=e20]:
+        - heading "Ditto is finding you a date!" [level=1] [ref=e21]:
+          - text: Ditto is finding
+          - text: you a date!
+        - paragraph [ref=e22]:
+          - text: Searching through your school to find
+          - text: someone just right for you...
+        - generic [ref=e23]:
+          - button "Pause Ditto" [ref=e24] [cursor=pointer]
+          - button "Message Ditto" [ref=e25] [cursor=pointer]
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - paragraph [ref=e31]: What Ditto knows about you
+        - generic [ref=e32]:
+          - generic [ref=e33] [cursor=pointer]:
+            - generic [ref=e34]:
+              - paragraph [ref=e35]: Basic level
+              - generic [ref=e36]: ✏️
+            - paragraph [ref=e37]: Born in 2003, Ben Lu is an east asian male who loves...
+          - generic [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]:
+              - paragraph [ref=e41]: In-depth level
+              - generic [ref=e42]: +
+            - paragraph [ref=e43]: Users who complete this get 78% more matches
+          - generic [ref=e44] [cursor=pointer]:
+            - generic [ref=e45]:
+              - paragraph [ref=e46]: Ideal look
+              - generic [ref=e47]: +
+            - paragraph [ref=e48]: Users who upload this get 2× more matches
+      - generic [ref=e49]:
+        - paragraph [ref=e50]: Wildcard of the Week
+        - paragraph [ref=e51]: Week of Apr 28
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]:
+              - generic [ref=e55]: 🌶️
+              - generic [ref=e56]: Spicy Question
+            - generic [ref=e57]: New every Monday
+          - paragraph [ref=e58]: Would you rather date someone significantly hotter than you, or significantly smarter than you?
+          - generic [ref=e59]:
+            - button "Hotter than me 🔥" [ref=e60] [cursor=pointer]
+            - button "Smarter than me 🧠" [ref=e61] [cursor=pointer]
+          - button "Lock in my answer" [disabled] [ref=e62]

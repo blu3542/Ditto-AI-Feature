@@ -1,26 +1,9 @@
-# Ditto Wildcard Feature — Prototype
+# Ditto Wildcard
 
-A working Next.js prototype of the **Spicy Question of the Week** feature for Ditto's dating platform.
+> Product design, customer research, and iteration are covered in the video walkthrough. This README covers code and infrastructure.
+> [Video walkthrough](https://drive.google.com/file/d/1dbVhPKJOasORw6js56sIcoVO7Ku6OASa/view?usp=sharing)
 
-## What this is
-
-This prototype demonstrates a new feature for Ditto's main dashboard: a weekly wildcard question that:
-
-1. **Gamifies the profile** — users pick A or B and explain why in one sentence
-2. **Feeds richer signal to the matching agent** — free-text reasoning gives the LLM qualitatively better data than any dropdown could
-3. **Creates a mutual reveal mechanic** — Ditto texts you before your date asking if you want your match to see your answer. Only revealed if both say yes.
-
-## Feature flow
-
-```
-1. Weekly spicy question appears on dashboard
-2. User picks A or B
-3. "Why?" text box appears — one sentence
-4. User locks in answer
-5. Ditto texts before the date: "want to reveal your answer?"
-6. YES/NO → only revealed if mutual YES
-7. Match sees each other's answer + reasoning in the date plan
-```
+Next.js prototype of a new Ditto dashboard feature: **Wildcard: Spicy Question of the Week** — a weekly binary question that collects free-text reasoning to improve matching signal quality.
 
 ## Setup
 
@@ -33,35 +16,55 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Stack
 
-- **Next.js 14** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **DM Serif Display + DM Sans** — matching Ditto's typography
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS v3
+- next/font/google
 
 ## Project structure
 
 ```
 app/
-  layout.tsx       # Root layout with font imports
-  page.tsx         # Entry point
-  globals.css      # Tailwind + custom utilities
+  layout.tsx                        # Root layout, font imports
+  page.tsx                          # Entry point
+  globals.css                       # Tailwind + custom utilities
 
 components/
-  PhoneFrame.tsx   # Outer phone shell with ambient orbs
-  TopBar.tsx       # Avatar + menu
-  FindingCard.tsx  # "Ditto is finding you a date" card
-  WildcardCard.tsx # ← The feature (main component)
-  ProfileCard.tsx  # "What Ditto knows about you" section
+  PhoneFrame.tsx                    # Outer phone shell with ambient background
+  TopBar.tsx                        # Avatar and nav
+  FindingCard.tsx                   # "Ditto is finding you a date" status card
+  WildcardCard.tsx                  # The feature — question, choice, why, lock flow
+  ProfileCard.tsx                   # "What Ditto knows about you" section
+  AuthProvider.tsx                  # Supabase session context
+  onboarding/
+    OnboardingFlow.tsx              # Multi-step onboarding shell
+    steps/Step1Basics.tsx           # Name, age, gender
+    steps/Step2About.tsx            # Bio and hobbies
+    steps/Step3Impression.tsx       # First impression prompt
+    steps/Step4Type.tsx             # Partner type preferences
+    steps/Step5Preferences.tsx      # Dealbreakers and green flags
+    steps/Step6Photos.tsx           # Photo upload
+    ui/Chip.tsx                     # Reusable selection chip
+    ui/StepHeader.tsx               # Step title and subtitle
+
+lib/
+  supabase.ts                       # Supabase client init
 ```
 
-## Why this feature
+## Production architecture
 
-Ditto's matching quality is entirely bottlenecked by what users tell it. Standard profile fields (green flags, red flags, politics) collect **generic, self-reported, aspirational answers** — everyone says "good communication." 
+The question pool is hardcoded in `WildcardCard.tsx` as a static `QUESTIONS` object for demo purposes. This is a prototype convenience — not the target architecture.
 
-The wildcard question injects **novel, rotating signal** that:
-- Breaks the homogeneity of profile data fed to the matching LLM
-- Captures personality through *reasoning*, not just selection
-- Creates a shared cultural moment across the user base weekly
-- Gives users a reason to return to the dashboard (currently passive)
+See `WildCard-Agent-System-Design.png` in the repo root for the full system diagram.
 
-The reveal mechanic mirrors Ditto's existing iMessage-first philosophy — zero new UI complexity, just extending the agent's existing behavior.
+Production pipeline:
+
+```
+EventBridge cron
+  → Scraper Lambda          # pulls trending cultural moments weekly
+  → LLM question generator  # formats binary options, scores for novelty + tone
+  → Database                # stores approved question pool with active-week flag
+  → Dashboard               # fetches current week's question on load
+```
+
+The scraper-to-LLM step owns question quality: novelty scoring, spiciness calibration, and filtering before anything reaches the database. Swapping the hardcoded array for this pipeline is a straight database read — the component interface doesn't change.

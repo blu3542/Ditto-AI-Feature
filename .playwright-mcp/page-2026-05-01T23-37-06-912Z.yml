@@ -1,0 +1,196 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - button [ref=e70] [cursor=pointer]:
+          - img [ref=e71]
+        - generic [ref=e73]:
+          - generic [ref=e74]: Tell Ditto your
+          - generic [ref=e75]: basics
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - paragraph [ref=e80]: What's your name?
+            - textbox "Your name" [ref=e81]
+          - generic [ref=e82]:
+            - paragraph [ref=e83]: When is your birthday?
+            - paragraph [ref=e84]: Only your age will be shown to others
+            - generic [ref=e85]:
+              - button "Select your birthday" [ref=e86] [cursor=pointer]:
+                - generic [ref=e87]: Select your birthday
+                - img [ref=e88]
+              - textbox
+          - generic [ref=e91]:
+            - paragraph [ref=e92]: What's your gender?
+            - generic [ref=e93]:
+              - button "Female" [ref=e94] [cursor=pointer]
+              - button "Male" [ref=e95] [cursor=pointer]
+              - button "Nonbinary" [ref=e96] [cursor=pointer]
+          - generic [ref=e97]:
+            - paragraph [ref=e98]: What's your ethnicity?
+            - paragraph [ref=e99]: Select all that apply
+            - generic [ref=e100]:
+              - button "American Indian" [ref=e101] [cursor=pointer]
+              - button "Black/African Descent" [ref=e102] [cursor=pointer]
+              - button "East Asian" [ref=e103] [cursor=pointer]
+              - button "Hispanic/Latino" [ref=e104] [cursor=pointer]
+              - button "Middle Eastern" [ref=e105] [cursor=pointer]
+              - button "Pacific Islander" [ref=e106] [cursor=pointer]
+              - button "South Asian" [ref=e107] [cursor=pointer]
+              - button "South East Asian" [ref=e108] [cursor=pointer]
+              - button "White" [ref=e109] [cursor=pointer]
+              - button "Other" [ref=e110] [cursor=pointer]
+          - generic [ref=e111]:
+            - paragraph [ref=e112]: How tall are you?
+            - generic [ref=e113]:
+              - generic [ref=e114]:
+                - spinbutton [ref=e115]
+                - generic [ref=e116]: ft
+              - generic [ref=e117]:
+                - spinbutton [ref=e118]
+                - generic [ref=e119]: in
+            - generic [ref=e120] [cursor=pointer]:
+              - checkbox "metric unit (cm)" [ref=e121]
+              - generic [ref=e122]: metric unit (cm)
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]: ✨
+            - paragraph [ref=e126]:
+              - text: People with detailed responses have
+              - strong [ref=e127]: 87% more matches
+          - generic [ref=e128]:
+            - paragraph [ref=e129]: Share your hobbies and interests
+            - textbox "e.g. hiking, film photography, cooking ramen..." [ref=e130]
+          - generic [ref=e131]:
+            - paragraph [ref=e132]: What year are you in?
+            - generic [ref=e133]:
+              - button "Freshman" [ref=e134] [cursor=pointer]:
+                - generic [ref=e136]: Freshman
+              - button "Sophomore" [ref=e137] [cursor=pointer]:
+                - generic [ref=e139]: Sophomore
+              - button "Junior" [ref=e140] [cursor=pointer]:
+                - generic [ref=e142]: Junior
+              - button "Senior" [ref=e143] [cursor=pointer]:
+                - generic [ref=e145]: Senior
+              - button "Master" [ref=e146] [cursor=pointer]:
+                - generic [ref=e148]: Master
+              - button "PhD" [ref=e149] [cursor=pointer]:
+                - generic [ref=e151]: PhD
+              - button "Other" [ref=e152] [cursor=pointer]:
+                - generic [ref=e154]: Other
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - paragraph [ref=e157]: What's the first thing you'd want your match to know about you?
+            - paragraph [ref=e158]: They'll see it when they're matched with you.
+            - textbox "e.g. I'm always down for a spontaneous adventure..." [ref=e159]
+          - generic [ref=e160]:
+            - paragraph [ref=e161]: Where did you hear from us?
+            - generic [ref=e162]:
+              - button "Poster" [ref=e163] [cursor=pointer]:
+                - generic [ref=e165]: Poster
+              - button "Instagram" [ref=e166] [cursor=pointer]:
+                - generic [ref=e168]: Instagram
+              - button "TikTok" [ref=e169] [cursor=pointer]:
+                - generic [ref=e171]: TikTok
+              - button "X (Twitter)" [ref=e172] [cursor=pointer]:
+                - generic [ref=e174]: X (Twitter)
+              - button "RedNote (Xiaohongshu)" [ref=e175] [cursor=pointer]:
+                - generic [ref=e177]: RedNote (Xiaohongshu)
+              - button "Friend" [ref=e178] [cursor=pointer]:
+                - generic [ref=e180]: Friend
+              - button "Other:" [ref=e181] [cursor=pointer]:
+                - generic [ref=e183]: "Other:"
+        - generic [ref=e184]:
+          - generic [ref=e186]:
+            - generic [ref=e187]: Tell Ditto your
+            - generic [ref=e188]: type
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - paragraph [ref=e191]: What are you looking for right now?
+              - paragraph [ref=e192]: Select on their app
+              - generic [ref=e193]:
+                - button "Life partner" [ref=e194] [cursor=pointer]
+                - button "Serious relationship" [ref=e195] [cursor=pointer]
+                - button "Casual dating" [ref=e196] [cursor=pointer]
+                - button "New friends" [ref=e197] [cursor=pointer]
+                - button "Not sure yet" [ref=e198] [cursor=pointer]
+            - generic [ref=e199]:
+              - paragraph [ref=e200]: Who do you want to date?
+              - paragraph [ref=e201]: Drag the bar below to adjust
+              - generic [ref=e202]:
+                - button "Man" [ref=e203] [cursor=pointer]
+                - button "Woman" [ref=e204] [cursor=pointer]
+                - button "Nonbinary" [ref=e205] [cursor=pointer]
+                - button "Everyone" [ref=e206] [cursor=pointer]
+            - generic [ref=e207]:
+              - paragraph [ref=e208]: What age range would you like to date in?
+              - generic [ref=e209]:
+                - generic [ref=e210]:
+                  - generic [ref=e211]: Min
+                  - spinbutton [ref=e212]: "18"
+                - generic [ref=e213]: –
+                - generic [ref=e214]:
+                  - generic [ref=e215]: Max
+                  - spinbutton [ref=e216]: "35"
+                - generic [ref=e217]: years old
+            - generic [ref=e218]:
+              - paragraph [ref=e219]: What ethnicities are you attracted to?
+              - paragraph [ref=e220]: Select all that apply
+              - generic [ref=e221]:
+                - button "No preference" [ref=e222] [cursor=pointer]
+                - button "American Indian" [ref=e223] [cursor=pointer]
+                - button "Black/African Descent" [ref=e224] [cursor=pointer]
+                - button "East Asian" [ref=e225] [cursor=pointer]
+                - button "Hispanic/Latino" [ref=e226] [cursor=pointer]
+                - button "Middle Eastern" [ref=e227] [cursor=pointer]
+                - button "Pacific Islander" [ref=e228] [cursor=pointer]
+                - button "South Asian" [ref=e229] [cursor=pointer]
+                - button "South East Asian" [ref=e230] [cursor=pointer]
+                - button "White" [ref=e231] [cursor=pointer]
+                - button "Other" [ref=e232] [cursor=pointer]
+        - generic [ref=e233]:
+          - generic [ref=e234]:
+            - paragraph [ref=e235]: What do you find physically attractive?
+            - generic [ref=e236]:
+              - generic [ref=e237]:
+                - generic [ref=e238]:
+                  - paragraph [ref=e239]: Height
+                  - button "I don't care" [ref=e240] [cursor=pointer]
+                - textbox "What matters to you about height?" [ref=e241]
+              - generic [ref=e242]:
+                - generic [ref=e243]:
+                  - paragraph [ref=e244]: Facial Features
+                  - button "I don't care" [ref=e245] [cursor=pointer]
+                - textbox "What matters to you about facial features?" [ref=e246]
+              - generic [ref=e247]:
+                - generic [ref=e248]:
+                  - paragraph [ref=e249]: Energy & Vibes
+                  - button "I don't care" [ref=e250] [cursor=pointer]
+                - textbox "What matters to you about energy & vibes?" [ref=e251]
+          - generic [ref=e252]:
+            - paragraph [ref=e253]: How do you want Ditto to match you?
+            - paragraph [ref=e254]: Drag the bar below to adjust
+            - generic [ref=e255]:
+              - button "Fast Score perfection" [ref=e256] [cursor=pointer]:
+                - generic [ref=e258]:
+                  - paragraph [ref=e259]: Fast
+                  - paragraph [ref=e260]: Score perfection
+              - button "Balance Decent fit" [ref=e261] [cursor=pointer]:
+                - generic [ref=e263]:
+                  - paragraph [ref=e264]: Balance
+                  - paragraph [ref=e265]: Decent fit
+              - button "Intentional Most preferences match" [ref=e266] [cursor=pointer]:
+                - generic [ref=e268]:
+                  - paragraph [ref=e269]: Intentional
+                  - paragraph [ref=e270]: Most preferences match
+              - button "Wait for the one All boxes checked" [ref=e271] [cursor=pointer]:
+                - generic [ref=e273]:
+                  - paragraph [ref=e274]: Wait for the one
+                  - paragraph [ref=e275]: All boxes checked
+        - generic [ref=e277]:
+          - paragraph [ref=e278]: 5 pics of your vibe
+          - paragraph [ref=e279]: Add 5 photos that show your face and vibe. Your first photo is your profile photo.
+          - generic [ref=e282]: Main
+        - paragraph [ref=e287]: By continuing, you agree to our Terms + Privacy
+      - button "Submit" [ref=e289] [cursor=pointer]
+  - alert [ref=e67]

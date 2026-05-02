@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "/Users/benlu/.nvm/versions/node/v20.15.0/bin/node",
+      "args": ["/Users/benlu/.nvm/versions/node/v20.15.0/lib/node_modules/@playwright/mcp/cli.js"]
+    },
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "sbp_0c0b0f4f1f32c53f19d717fd9ef3b21cf2ea939cI "]
+    }
+  }
+}

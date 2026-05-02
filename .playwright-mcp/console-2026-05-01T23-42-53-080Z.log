@@ -1,0 +1,6 @@
+[     515ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[     972ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://bohxeyiilmtqoepulqee.supabase.co/rest/v1/profiles?select=hobbies&id=eq.0b362d8a-98f2-4c65-a863-aa909e788c0c:0
+[    1112ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://bohxeyiilmtqoepulqee.supabase.co/rest/v1/profiles?select=hobbies&id=eq.0b362d8a-98f2-4c65-a863-aa909e788c0c:0
+[    9417ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://bohxeyiilmtqoepulqee.supabase.co/rest/v1/profiles?select=*&id=eq.0b362d8a-98f2-4c65-a863-aa909e788c0c:0
+[    9560ms] [ERROR] Failed to load resource: the server responded with a status of 406 () @ https://bohxeyiilmtqoepulqee.supabase.co/rest/v1/profiles?select=*&id=eq.0b362d8a-98f2-4c65-a863-aa909e788c0c:0
+[  189433ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186

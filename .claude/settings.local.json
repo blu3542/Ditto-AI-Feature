@@ -1,4 +1,11 @@
 {
+  "mcpServers": {
+    "playwright": {
+      "command": "/Users/benlu/.nvm/versions/node/v20.15.0/bin/node",
+      "args": ["/Users/benlu/.nvm/versions/node/v20.15.0/lib/node_modules/@playwright/mcp/cli.js"]
+    }
+  },
+  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "Bash(curl -L \"https://app.ditto.ai/fonts/Spencer/spencer-regular-webfont.woff\" -o /Users/benlu/Downloads/Ditto-AI-Build/ditto-wildcard/public/Spencer.woff)",

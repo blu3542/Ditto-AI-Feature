@@ -1,21 +1,78 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 
 type Choice = "A" | "B" | null;
 type CardState = "unanswered" | "choosing" | "explaining" | "locked";
 
-const QUESTION = {
-  text: "Would you rather date someone significantly hotter than you, or significantly smarter than you?",
-  optionA: "Hotter than me 🔥",
-  optionB: "Smarter than me 🧠",
-  week: "Week of Apr 28",
+interface Question {
+  text: string;
+  optionA: string;
+  optionB: string;
+  week: string;
+}
+
+const QUESTIONS: Record<string, Question> = {
+  music: {
+    text: "Was Justin Bieber's Coachella set underrated or overrated?",
+    optionA: "Underrated 🎤",
+    optionB: "Overrated 🙄",
+    week: "Week of Apr 28",
+  },
+  fitness: {
+    text: "Would you rather date a gym rat or a couch philosopher?",
+    optionA: "Gym rat 💪",
+    optionB: "Couch philosopher 📚",
+    week: "Week of Apr 28",
+  },
+  foodie: {
+    text: "Where are you going on a first date: Michelin star restaurant or best local taco spot?",
+    optionA: "Michelin star 🍽️",
+    optionB: "Taco spot 🌮",
+    week: "Week of Apr 28",
+  },
+  default: {
+    text: "Would you rather date someone significantly hotter than you, or significantly smarter than you?",
+    optionA: "Hotter than me 🔥",
+    optionB: "Smarter than me 🧠",
+    week: "Week of Apr 28",
+  },
 };
 
+function pickQuestion(hobbies: string | null): Question {
+  if (!hobbies) return QUESTIONS.default;
+  const h = hobbies.toLowerCase();
+  if (h.includes("music")) return QUESTIONS.music;
+  if (h.includes("fitness")) return QUESTIONS.fitness;
+  if (h.includes("foodie")) return QUESTIONS.foodie;
+  return QUESTIONS.default;
+}
+
 export default function WildcardCard() {
+  const [question, setQuestion] = useState<Question | null>(null);
   const [choice, setChoice] = useState<Choice>(null);
   const [why, setWhy] = useState("");
   const [cardState, setCardState] = useState<CardState>("unanswered");
+
+  useEffect(() => {
+    async function loadQuestion() {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (!user) {
+        setQuestion(QUESTIONS.default);
+        return;
+      }
+      const { data } = await supabase
+        .from("profiles")
+        .select("hobbies")
+        .eq("id", user.id)
+        .single();
+      setQuestion(pickQuestion(data?.hobbies ?? null));
+    }
+    loadQuestion();
+  }, []);
 
   const handleChoiceSelect = (c: Choice) => {
     setChoice(c);
@@ -27,8 +84,7 @@ export default function WildcardCard() {
     setCardState("locked");
   };
 
-  const choiceLabel = choice === "A" ? QUESTION.optionA : QUESTION.optionB;
-
+  const choiceLabel = choice === "A" ? question?.optionA : question?.optionB;
   const isLocked = cardState === "locked";
 
   return (
@@ -41,9 +97,13 @@ export default function WildcardCard() {
       </p>
       <p
         className="text-center text-[14px] mb-5"
-        style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em", textTransform: "uppercase" }}
+        style={{
+          color: "rgba(255,255,255,0.3)",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+        }}
       >
-        {QUESTION.week}
+        {question?.week ?? "Week of Apr 28"}
       </p>
 
       <div
@@ -59,48 +119,63 @@ export default function WildcardCard() {
               className="text-[13px] font-medium tracking-widest uppercase"
               style={{ color: "rgba(220,140,255,0.8)" }}
             >
-              Spicy Question
+              Wildcard Question
             </span>
           </div>
           <span className="text-[13px] text-faint">New every Monday</span>
         </div>
 
         {/* Question */}
-        <p className="px-5 pb-4 text-[21px] leading-snug text-primary">
-          {QUESTION.text}
-        </p>
+        {question ? (
+          <p className="px-5 pb-4 text-[21px] leading-snug text-primary">
+            {question.text}
+          </p>
+        ) : (
+          <div className="px-5 pb-4">
+            <div
+              className="h-6 w-3/4 rounded-lg animate-pulse"
+              style={{ background: "rgba(255,255,255,0.08)" }}
+            />
+            <div
+              className="h-6 w-1/2 rounded-lg mt-2 animate-pulse"
+              style={{ background: "rgba(255,255,255,0.08)" }}
+            />
+          </div>
+        )}
 
         {/* ── STATE: unanswered or choosing ── */}
-        {!isLocked && (
+        {!isLocked && question && (
           <>
             {/* Choice buttons */}
             <div className="grid grid-cols-2 gap-2.5 px-5 pb-4">
               <button
                 onClick={() => handleChoiceSelect("A")}
                 className={`py-4 px-3 rounded-[15px] text-[16px] font-medium leading-tight text-center transition-all duration-200 ${
-                  choice === "A"
-                    ? "choice-selected-a"
-                    : "choice-default"
+                  choice === "A" ? "choice-selected-a" : "choice-default"
                 }`}
               >
-                {QUESTION.optionA}
+                {question.optionA}
               </button>
               <button
                 onClick={() => handleChoiceSelect("B")}
                 className={`py-4 px-3 rounded-[15px] text-[16px] font-medium leading-tight text-center transition-all duration-200 ${
-                  choice === "B"
-                    ? "choice-selected-b"
-                    : "choice-default"
+                  choice === "B" ? "choice-selected-b" : "choice-default"
                 }`}
               >
-                {QUESTION.optionB}
+                {question.optionB}
               </button>
             </div>
 
             {/* Why box — appears after choice */}
             {choice && (
               <div className="px-5 pb-4 animate-fade-up">
-                <p className="text-[14px] mb-2.5" style={{ color: "rgba(255,255,255,0.35)", fontStyle: "italic" }}>
+                <p
+                  className="text-[14px] mb-2.5"
+                  style={{
+                    color: "rgba(255,255,255,0.35)",
+                    fontStyle: "italic",
+                  }}
+                >
                   Quick — why&apos;d you pick that? (one sentence)
                 </p>
                 <textarea
@@ -125,7 +200,7 @@ export default function WildcardCard() {
         )}
 
         {/* ── STATE: locked ── */}
-        {isLocked && (
+        {isLocked && question && (
           <div className="px-5 pb-5 animate-fade-up">
             {/* Locked banner */}
             <div
@@ -140,7 +215,10 @@ export default function WildcardCard() {
                 <p className="text-[16px] font-medium text-purple-accent mb-1">
                   Answer locked in
                 </p>
-                <p className="text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.35)" }}>
+                <p
+                  className="text-[14px] leading-relaxed"
+                  style={{ color: "rgba(255,255,255,0.35)" }}
+                >
                   Ditto will text you before your date to ask if you want your
                   match to see this. Only revealed if you both say yes.
                 </p>
@@ -150,9 +228,14 @@ export default function WildcardCard() {
             {/* Answer preview */}
             <div
               className="mt-3 rounded-[13px] p-4 text-[15px] leading-relaxed"
-              style={{ background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)" }}
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                color: "rgba(255,255,255,0.5)",
+              }}
             >
-              <span className="text-purple-accent font-medium">Your answer: </span>
+              <span className="text-purple-accent font-medium">
+                Your answer:{" "}
+              </span>
               {choiceLabel}
               <br />
               <span className="text-purple-accent font-medium">Why: </span>
@@ -160,7 +243,10 @@ export default function WildcardCard() {
             </div>
 
             {/* Agent message preview */}
-            <AgentMessagePreview choice={choiceLabel} />
+            <AgentMessagePreview
+              choice={choiceLabel ?? ""}
+              questionText={question.text}
+            />
           </div>
         )}
       </div>
@@ -168,13 +254,26 @@ export default function WildcardCard() {
   );
 }
 
-// Simulates the iMessage Ditto sends before the date
-function AgentMessagePreview({ choice }: { choice: string }) {
-  const [agentState, setAgentState] = useState<"pending" | "yes" | "no">("pending");
+function AgentMessagePreview({
+  choice,
+  questionText,
+}: {
+  choice: string;
+  questionText: string;
+}) {
+  const [agentState, setAgentState] = useState<"pending" | "yes" | "no">(
+    "pending",
+  );
+
+  const shortQuestion =
+    questionText.length > 50 ? questionText.slice(0, 47) + "..." : questionText;
 
   return (
     <div className="mt-3">
-      <p className="text-[13px] uppercase tracking-widest mb-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>
+      <p
+        className="text-[13px] uppercase tracking-widest mb-2.5"
+        style={{ color: "rgba(255,255,255,0.2)" }}
+      >
         Preview — Ditto&apos;s text before your date
       </p>
 
@@ -197,10 +296,19 @@ function AgentMessagePreview({ choice }: { choice: string }) {
             className="rounded-[17px] rounded-tl-[4px] px-4 py-2.5 text-[15px] leading-relaxed text-white max-w-[280px]"
             style={{ background: "rgba(255,255,255,0.08)" }}
           >
-            hey! 👋 your date is set for friday. this week&apos;s wildcard was &quot;hotter or smarter?&quot; — you picked{" "}
-            <span className="text-purple-accent font-medium">{choice.replace(/🔥|🧠/g, "").trim().toLowerCase()}</span>.
-            <br /><br />
-            want your match to see your answer? they&apos;ll only know if you both say yes 👀
+            hey! 👋 your date is set for friday. this week&apos;s wildcard was
+            &quot;{shortQuestion}&quot; — you picked{" "}
+            <span className="text-purple-accent font-medium">
+              {choice
+                .replace(/[\u{1F300}-\u{1FFFF}]/gu, "")
+                .trim()
+                .toLowerCase()}
+            </span>
+            .
+            <br />
+            <br />
+            want your match to see your answer? they&apos;ll only know if you
+            both say yes 👀
           </div>
         </div>
 
@@ -238,7 +346,8 @@ function AgentMessagePreview({ choice }: { choice: string }) {
               className="rounded-[17px] rounded-tl-[4px] px-4 py-2.5 text-[15px] leading-relaxed text-white"
               style={{ background: "rgba(255,255,255,0.08)" }}
             >
-              love it 😏 if they say yes too, you&apos;ll both see each other&apos;s answers in the date plan. see you friday!
+              love it 😏 if they say yes too, you&apos;ll both see each
+              other&apos;s answers in the date plan. see you friday!
             </div>
           </div>
         )}
@@ -249,7 +358,8 @@ function AgentMessagePreview({ choice }: { choice: string }) {
               className="rounded-[17px] rounded-tl-[4px] px-4 py-2.5 text-[15px] leading-relaxed text-white"
               style={{ background: "rgba(255,255,255,0.08)" }}
             >
-              got it — keeping it private. your answer still helps ditto find better matches for you 🤝 see you friday!
+              got it — keeping it private. your answer still helps ditto find
+              better matches for you 🤝 see you friday!
             </div>
           </div>
         )}

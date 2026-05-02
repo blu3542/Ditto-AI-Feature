@@ -9,6 +9,7 @@ const rows = [
     complete: true,
     action: "edit",
     photos: PHOTOS,
+    editable: true,
   },
   {
     label: "In-depth level",
@@ -16,6 +17,7 @@ const rows = [
     complete: false,
     action: "add",
     photos: null,
+    editable: false,
   },
   {
     label: "Ideal look",
@@ -23,10 +25,15 @@ const rows = [
     complete: false,
     action: "add",
     photos: null,
+    editable: false,
   },
 ];
 
-export default function ProfileCard() {
+interface Props {
+  onEditBasics: () => void;
+}
+
+export default function ProfileCard({ onEditBasics }: Props) {
   return (
     <div>
       <p
@@ -41,6 +48,7 @@ export default function ProfileCard() {
           <div
             key={row.label}
             className="rounded-[20px] px-5 py-4 cursor-pointer"
+            onClick={row.editable ? onEditBasics : undefined}
             style={
               row.complete
                 ? {

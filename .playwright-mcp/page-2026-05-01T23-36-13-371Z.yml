@@ -1,0 +1,47 @@
+- main [ref=e2]:
+  - generic [ref=e7]:
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - img "Ben" [ref=e13]
+          - generic [ref=e14]:
+            - paragraph [ref=e15]: Ben
+            - paragraph [ref=e16]: "+15133175976"
+        - button [ref=e17] [cursor=pointer]
+      - generic [ref=e21]:
+        - heading "Ditto is finding you a date!" [level=1] [ref=e22]:
+          - text: Ditto is finding
+          - text: you a date!
+        - paragraph [ref=e23]:
+          - text: Searching through your school to find
+          - text: someone just right for you...
+        - generic [ref=e24]:
+          - button "Pause Ditto" [ref=e25] [cursor=pointer]
+          - button "Message Ditto" [ref=e26] [cursor=pointer]
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: What Ditto knows about you
+        - generic [ref=e33]:
+          - generic [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]:
+              - paragraph [ref=e36]: Basic level
+              - generic [ref=e37]: ✏️
+            - paragraph [ref=e38]: Born in 2003, Ben Lu is an east asian male who loves...
+          - generic [ref=e40] [cursor=pointer]:
+            - generic [ref=e41]:
+              - paragraph [ref=e42]: In-depth level
+              - generic [ref=e43]: +
+            - paragraph [ref=e44]: Users who complete this get 78% more matches
+          - generic [ref=e45] [cursor=pointer]:
+            - generic [ref=e46]:
+              - paragraph [ref=e47]: Ideal look
+              - generic [ref=e48]: +
+            - paragraph [ref=e49]: Users who upload this get 2× more matches
+      - generic [ref=e50]:
+        - paragraph [ref=e51]: Wildcard of the Week
+        - paragraph [ref=e52]: Week of Apr 28
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: 🌶️
+            - generic [ref=e57]: Spicy Question
+          - generic [ref=e58]: New every Monday

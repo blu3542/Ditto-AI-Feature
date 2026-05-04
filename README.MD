@@ -55,7 +55,7 @@ lib/
 
 The question pool is hardcoded in `WildcardCard.tsx` as a static `QUESTIONS` object for demo purposes. This is a prototype convenience — not the target architecture.
 
-See `WildCard-Agent-System-Design.png` in the repo root for the full system diagram.
+See `Ditto-AI Wildcard Diagram.png` in the repo root for the full system diagram.
 
 Production pipeline:
 
